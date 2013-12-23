@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = CleverColumn::VERSION
   spec.authors       = ["Kimi"]
   spec.email         = ["kimigao1986@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{枚举指定字段含义及说明}
+  spec.summary       = %q{枚举指定字段含义及说明}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -20,4 +20,9 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec", "~> 2.6"
+  spec.add_development_dependency "mysql2"
+  spec.add_development_dependency "pry"
+
+  spec.add_dependency "activerecord"
 end
