@@ -1,6 +1,6 @@
 # CleverColumn
 
-TODO: Write a gem description
+枚举指定字段的值，并对具体值增加描述。
 
 ## Installation
 
@@ -18,7 +18,29 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Define
+
+``` ruby
+class Book < ActiveRecord::Base
+  clever_column :star, config: {
+    one:    { value: 1, desc: 'one star' },
+    two:    { value: 2, desc: 'two star' },
+    three:  { value: 3, desc: 'three star' },
+    four:   { value: 4, desc: 'four star' },
+    five:   { value: 5, desc: 'five star' }
+  }
+end
+```
+
+Call
+
+``` ruby
+book = Book.create(title: 'Working With Unix Processes', star: 3)
+
+book.star_config => { key: :three, value: 3, desc: 'three star' }
+book.star_desc   => 'three star'
+book.star_name   => :three
+```
 
 ## Contributing
 
