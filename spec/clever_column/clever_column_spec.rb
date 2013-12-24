@@ -11,9 +11,35 @@ describe CleverColumn do
     load File.dirname(__FILE__) + "/../fixtures/models.rb"
     load File.dirname(__FILE__) + "/../fixtures/schema.rb"
 
-    @book = Book.new
   end
 
-  describe 'define many method' do
+  describe 'define some class methods' do
+
+    subject { Book }
+
+    it { should respond_to(:clever_column) }
+    it { should respond_to(:star_config) }
+    it { should respond_to(:star_array) }
+
   end
+
+  describe 'define some instance methods' do
+    subject { Book.new }
+
+    it { should respond_to(:star_config) }
+    it { should respond_to(:star_desc) }
+    it { should respond_to(:star_name) }
+    it { should respond_to(:"star_name=") }
+  end
+
+  describe 'method result' do
+    subject(:book) { Book.create(title: 'Working With Unix Processes', star: 3) }
+
+    it { book.star_config.should == {key: :three, value: 3, desc: 'three star'} }
+    it { book.star_desc.should ==  'three star' }
+    it { book.star_name.should ==  :three }
+
+  end
+
+
 end
