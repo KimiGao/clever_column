@@ -14,7 +14,7 @@ module CleverColumn
     end
 
     def item(value)
-      config_values_map[value]
+      @config_values_map[value]
     end
   end
 end
