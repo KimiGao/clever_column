@@ -42,6 +42,10 @@ module CleverColumn
           end
         end
 
+        # result:
+        #
+        # { value: 1, desc: 'one star' }
+        #
         define_method "#{column_name}_config".to_sym do
           return {} unless self.class.respond_to?("#{column_name}_config".to_sym)
 
@@ -59,6 +63,12 @@ module CleverColumn
 
         define_method "#{column_name}_name=".to_sym do |name|
           write_attribute(column_name, self.class.send("#{column_name}_config")[name].try(:value))
+        end
+
+        config.keys.each do |_key|
+          define_method "#{column_name}_#{_key}!".to_sym do
+            write_attribute(column_name, self.class.send("#{column_name}_config")[_key.to_sym].try(:value))
+          end
         end
       end
     end

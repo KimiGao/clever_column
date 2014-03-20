@@ -1,20 +1,24 @@
 module CleverColumn
-  class ConfigHash < Hash
+  class ConfigHash
 
     attr_reader :config_values_map
 
     def initialize(*args)
-      configs = args.extract_options!
+      @config_hash = args.extract_options!
 
       @config_values_map = {}
 
-      configs.each do |_key, _config|
+      @config_hash.each do |_key, _config|
         @config_values_map[_config[:value]] = _config.merge(key: _key)
       end
     end
 
     def item(value)
       @config_values_map[value]
+    end
+
+    def keys
+      @config_hash.keys
     end
   end
 end

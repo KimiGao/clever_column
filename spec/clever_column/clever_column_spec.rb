@@ -30,6 +30,7 @@ describe CleverColumn do
     it { should respond_to(:star_desc) }
     it { should respond_to(:star_name) }
     it { should respond_to(:"star_name=") }
+    it { should respond_to(:"star_three!") }
   end
 
   describe 'method result' do
@@ -40,6 +41,5 @@ describe CleverColumn do
     it { book.star_name.should ==  :three }
 
   end
-
 
 end
