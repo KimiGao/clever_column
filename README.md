@@ -40,6 +40,7 @@ book = Book.create(title: 'Working With Unix Processes', star: 3)
 book.star_config => { key: :three, value: 3, desc: 'three star' }
 book.star_desc   => 'three star'
 book.star_name   => :three
+
 ```
 
 ## Contributing
