@@ -66,8 +66,13 @@ module CleverColumn
         end
 
         config.keys.each do |_key|
+
           define_method "#{column_name}_#{_key}!".to_sym do
-            write_attribute(column_name, self.class.send("#{column_name}_config")[_key.to_sym].try(:value))
+            write_attribute(column_name, self.class.send("#{column_name}_config")[_key.to_sym][:value])
+          end
+
+          define_method "#{column_name}_#{_key}?".to_sym do
+            read_attribute(column_name) == self.class.send("#{column_name}_config")[_key.to_sym][:value]
           end
         end
       end

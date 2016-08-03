@@ -20,5 +20,9 @@ module CleverColumn
     def keys
       @config_hash.keys
     end
+
+    def [](key)
+      @config_hash[key]
+    end
   end
 end
