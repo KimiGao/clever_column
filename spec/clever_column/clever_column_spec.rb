@@ -31,6 +31,7 @@ describe CleverColumn do
     it { should respond_to(:star_name) }
     it { should respond_to(:"star_name=") }
     it { should respond_to(:"star_three!") }
+    it { should respond_to(:"star_three?") }
   end
 
   describe 'method result' do
@@ -39,6 +40,7 @@ describe CleverColumn do
     it { book.star_config.should == {key: :three, value: 3, desc: 'three star'} }
     it { book.star_desc.should ==  'three star' }
     it { book.star_name.should ==  :three }
+    it { book.star_three?.should ==  true }
   end
 
   describe 'define some scope' do
