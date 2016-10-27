@@ -1,6 +1,7 @@
 mysql:
   adapter: mysql2
   database: clever_column_test
+  host: 127.0.0.1
   username: root
   password: root
   encoding: utf8

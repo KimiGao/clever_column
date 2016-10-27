@@ -39,7 +39,15 @@ describe CleverColumn do
     it { book.star_config.should == {key: :three, value: 3, desc: 'three star'} }
     it { book.star_desc.should ==  'three star' }
     it { book.star_name.should ==  :three }
+  end
 
+  describe 'define some scope' do
+
+    subject { Book }
+
+    it { should respond_to(:star_one) }
+    it { should respond_to(:star_two) }
+    it { should respond_to(:star_three) }
   end
 
 end
